@@ -1,0 +1,48 @@
+<view class='body'>
+<view class="line"></view>
+  <!-- <view class="title">
+    <view class="col-3">
+      <input class="effect-1" type="text" placeholder="添加收集的主题"/>
+      <span class="focus-border"></span>
+    </view>
+    <view class="col-3">
+      <input class="effect-2" type="text" placeholder="Placeholder Text"/>
+      <span class="focus-border"></span>
+    </view>
+  </view> -->
+
+    <view class="addbox">
+      <view class="addboxitem" catchtap='tostep'>创建表单</view>
+    </view>
+
+    <view class="formbox" wx:for="{{forms}}" wx:key="index">
+      <view class="formboxitem"  wx:key="index">
+      <!-- <image src='../../images/IMG_0846.JPG' mode='aspectFit' style='width:60px;height:60px;float:left;'></image> -->
+      <view class="formitemcontext" >
+        <view class="formname">{{item.name}}</view>
+        <view class="formsubmit">提交量：{{item.submitnum}}/{{item.submitsum}}</view>
+      </view>
+      <view class="formitemedit" >
+      <view class="formedititem" >
+      <image src='../../images/edit.png' mode='aspectFit' style='width:15px;height:15px;float:left;margin-right:5px;margin-top:1px;'></image>
+       <view class="formedit">编辑</view>
+       </view>
+       <view class="formedititem" >
+      <image src='../../images/share.png' mode='aspectFit' style='width:15px;height:15px;float:left;margin-right:5px;margin-top:1px;'></image>
+       <view class="formedit">分享</view>
+       </view>
+       <view class="formedititem" >
+      <image src='../../images/数据.png' mode='aspectFit' style='width:15px;height:15px;float:left;margin-right:5px;margin-top:1px;'></image>
+       <view class="formedit">数据</view>
+       </view>
+       <view class="formedititem" >
+      <image src='../../images/更多.png' mode='aspectFit' style='width:15px;height:15px;float:left;margin-right:5px;margin-top:1px;'></image>
+       <view class="formedit">更多</view>
+       </view>
+      </view>
+    </view>
+  
+   
+  </view>
+
+  </view>

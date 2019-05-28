@@ -1,0 +1,119 @@
+<!--pages/createSub/createSub.wxml-->
+<!--pages/detail/detail.wxml-->
+<view class="container">  
+  <view class="backg"></view>
+  <!-- 表单标题和简介 -->
+  <view class="formbref">
+  <view class="formbreftext">
+  <view class="title">{{question.paper.title}}</view>
+  <view class="des">表单简介：{{question.paper.des}}</view>
+  </view>
+  <view class="addwidget">
+  <image src='../../images/添加.png'  mode='aspectFit' style='width:45px;height:45px;float:left;margin-top:20rpx;' catchtap="towidget"></image>
+  </view>
+  </view>
+  <view class="widgetmodel">
+  <!-- 组件弹窗-->
+  <modalView show="{{showModal}}" bindcancel="modalCancel" bindconfirm='modalConfirm' single='{{single}}'>
+    <view class='modal-content'>
+      <scroll-view scroll-y class='main-content'>
+      <view class="modaltitle">表单组件</view>
+        <view class="selectType">
+    <block  wx:for="{{widget}}">
+      <view  wx:if="{{index % 2 == 0}}" class="toRadio" data-item="{{item}}" data-type="1" catchtap="toRadio">
+        <icon class="iconfont icon-guanbi"></icon>
+        {{item.title}}
+      </view>
+      <view wx:else class="toRadio2" data-type="0" data-item="{{item}}" catchtap="toRadio">
+        <icon class="iconfont icon-combinedshapecopy2"></icon>
+        {{item.title}}
+      </view>
+    </block>
+    </view>
+      </scroll-view>
+    </view>
+  </modalView>
+  <!-- 表单渲染 -->
+  </view>
+   <view class="question" wx:for="{{question.schemaList}}" wx:key="{{index}}">
+    <view class="questionB">
+       <!-- 标题渲染 -->
+      <view class="questionT">
+      <text wx:if="{{item.schema.ui_required == 1}}">*</text>
+        {{index+1}}、{{item.schema.title}}
+        <!-- 修改 -->
+        <view 
+        wx:if="{{confirm}}"
+        catchtap="edit" 
+        data-index="{{index}}">
+          <icon class="iconfont icon-icon_edit"></icon> 
+          修改
+        </view>
+      </view>
+      <!-- 单选框渲染 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'radio'}}">
+        <radio-group class="radio-group" >
+          <label class="radio"  wx:for="{{item.schema.enums}}" wx:key="{{index}}">
+            <radio value="{{item.id}}"/>{{item.answer}}
+          </label>
+        </radio-group>
+        <view class="textarea" wx:if="{{item.schema.enums == ''}}">
+          <textarea placeholder="请输入回答"/>
+        </view>
+      </view>
+      <!-- 多选框渲染 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'checkbox'}}">
+        <checkbox-group class="radio-group" >
+          <label class="radio"  wx:for="{{item.schema.enums}}" wx:key="{{index}}">
+           <!-- <checkbox value="{{item.name}}" checked="{{item.checked}}" /> -->
+            <checkbox/>
+            {{item.answer}}
+          </label>
+        </checkbox-group>
+        <view class="textarea" wx:if="{{item.schema.enums == ''}}">
+          <textarea placeholder="请输入回答"/>
+        </view>
+      </view>
+      <!-- tab选择  BUG:无法展示设置的默认值-->
+       <view class="questionA" wx:if="{{item.schema.ui_widget == 'tab'}}">
+       <label class="radio">
+       <switch checked="{{schema.default}}" />
+       </label>
+      </view>
+      <!-- 文本-数字 BUG:还没有设置输入非数字提示和超过最大值提示 
+                    BUG:并没有设置相应的整数限制
+                    BUG:是否被某数整除还未实现渲染和设置
+                    BUG:手机号邮箱等还没有限制 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'number'|| item.schema.ui_widget == 'format-email'|| item.schema.ui_widget == 'format-mobile-number'|| item.schema.ui_widget == 'text'}}">
+       <label class="radio">
+        <input class="inputtext" placeholder="请输入" type="{{item.schema.type}}" maxlength="{{item.schema.maximum}}"/>
+          </label>
+      </view>
+      <!-- slide渲染 -->
+       <view class="questionA" wx:if="{{item.schema.ui_widget == 'slider'}}">
+       <label class="radio">
+       <slider bindchange="changedefault" min="{{item.schema.minimum}}" max="{{item.schema.maximum}}" show-value />
+       </label>
+      </view>
+      <!-- star渲染 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'rate'}}">
+       <label class="radio">
+       <van-rate size="32">
+       </van-rate>
+       </label>
+      </view>
+      <!-- picker -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'format-date'}}">
+       <label class="radio">
+       <van-datetime-picker
+              type="time"
+      />
+       </label>
+      </view>
+    </view>
+  </view> 
+  <!-- 按钮 -->
+  <button class="btn" catchtap='preview' wx:if="{{confirm}}">预览</button>
+  <button class="btn" catchtap='publish' wx:if="{{!confirm}}">确认发布</button>
+  <button class="btn" catchtap='returnEdit' wx:if="{{!confirm}}">返回修改</button>
+</view>

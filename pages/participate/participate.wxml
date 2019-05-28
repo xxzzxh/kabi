@@ -1,0 +1,31 @@
+<!-- 搜索栏 -->
+<view class='searchlist'>
+<input bindinput="bindKeyInput" confirm-type="search" placeholder='搜索' bindconfirm="confirm" data-type="input">{{inputValue}}</input>
+<!-- <icon type="search" size="20" catchtap='confirm' data-type="icon"/> -->
+</view>
+<!-- tab -->
+<view class="tabNav">
+  <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="currentTab" class="{{currentTab==index?'cur':''}}">
+    <text>{{item}}</text>
+  </view>
+</view>
+
+<view class='body'>
+<!-- <view wx:if="{{sendList.length==0}}" class="noneimage" >
+    <image src='../../images/none.png'></image>
+    <text>你还没有表单任务～</text>
+</view> -->
+<view class="line"></view>
+    <view class="formbox" wx:for="{{forms}}">
+      <view class="formboxitem"  wx:key="index">
+        <view wx:if="{{item.status == '未填写'}}" class="formstatusno">{{item.status}}</view>
+        <view wx:if="{{item.status == '已填写'}}" class="formstatus">{{item.status}}</view>
+        <view class="formname">{{item.name}}</view>
+        <view class="formtime">{{item.starttime}}-{{item.endtime}}</view>
+       
+      </view>
+    </view>
+
+  <view>{{widget}}</view>
+  <view>{{widget.description}}</view>
+  </view>

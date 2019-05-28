@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/participate/participate",
+    "pages/creat/creat",
+    "pages/createSub/createSub",
+    "pages/creats/creats",
+    "pages/detail/detail",
+    "pages/radio/radio",
+    "pages/statis/statis",
+    "pages/preview/preview",
+    "pages/suggest/suggest"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "卡比表单",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#0085e2",
+    "list": [
+      {
+        "pagePath": "pages/participate/participate",
+        "selectedIconPath": "images/resultA.png",
+        "iconPath": "images/result.png",
+        "text": "我参与的"
+      },
+      {
+        "pagePath": "pages/creats/creats",
+        "selectedIconPath": "images/createA.png",
+        "iconPath": "images/creat.png",
+        "text": "我创建的"
+      },
+      {
+        "pagePath": "pages/suggest/suggest",
+        "selectedIconPath": "images/suggestA.png",
+        "iconPath": "images/suggest.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

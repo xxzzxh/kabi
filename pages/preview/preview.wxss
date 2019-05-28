@@ -1,0 +1,147 @@
+/* pages/createSub/createSub.wxss */
+page {
+  background-color: #ffffff;
+}
+.container {
+  padding:0 20rpx;
+  background-color: #ffffff;
+  color:#343434;
+  overflow: auto;
+} 
+.formbref{
+  display: flex;
+  background:white;
+  margin-left: 20rpx;
+  margin-top:4%;
+  width:94%;
+  border-radius: 6px;
+}
+.formbreftext{
+  width:550rpx;
+}
+.title {
+  text-align: left;
+  font-size:50rpx;
+  padding:30rpx 0 0rpx;
+  margin-left: 20px;
+  color:#202122;
+  font-weight: 700;
+}
+.des {
+  line-height:50rpx;
+  font-size:28rpx;
+  margin-bottom:24rpx;
+  margin-left: 20px;
+  color:#202122;
+}
+.question {
+  padding:0 20rpx;
+}
+.questionB {
+  padding:0 20rpx;
+  border-radius:5px;
+  background-color: white;
+  margin-top:24rpx;
+}
+.questionB .questionT {
+  padding:20rpx 0;
+  font-size:32rpx;
+  color:#19191a;
+}
+.questionT text {
+  color:red;
+}
+.questionT view {
+  float:right;
+  font-size:28rpx;
+  margin-top:-5px;
+}
+.radio {
+  display:block;
+  font-size:30rpx;
+  padding:20rpx;
+  border-bottom:1rpx dashed #dadada;
+}
+.radio:last-child {
+  border-bottom:none;
+}
+.radio radio {
+  margin-right:20rpx;
+}
+.textarea {
+  padding:24rpx;
+}
+.questionA textarea {
+  width:100%;
+  height:160rpx;
+  padding:20rpx; 
+  box-sizing: border-box; 
+  font-size:30rpx;
+  border:1rpx solid #dadada;
+  border-radius: 5px;
+}
+.selectType {
+  font-size:32rpx;
+}
+.selectType icon {
+  font-size:20rpx;
+  color:#58a6f6;
+}
+.toRadio icon{
+  position:relative;
+  font-size:45rpx;
+  top:5rpx;
+}
+.toRadio2 icon{
+  position:relative;
+  font-size:45rpx;
+  top:5rpx;
+}
+.toRadio{
+  float: left;
+  margin-right: 20rpx;
+  background-color: #eaf3fb;
+  border-radius:15px;
+  margin-top:34rpx;
+  text-align: center;
+  padding-bottom: 18rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  color: #706e6e;
+}
+.toRadio2{
+  float: left;
+  background-color: #eaf3fb;
+  border-radius:20px;
+  margin-top:34rpx;
+  text-align: center;
+  padding-bottom: 18rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  margin-right: 15rpx;
+  color: #706e6e;
+}
+.btn {
+  width:80%;
+  height:40px;
+  background-color: #58a6f6;
+  border-radius: 40px;
+  line-height:40px;
+  color:white;
+  margin:24rpx auto;
+  font-size:32rpx;
+}
+/* 添加按钮 */
+.addbox{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+
+}
+
+/* 表单的输入项样式 */
+.inputtext{
+  border: 1px solid #c5c7c9;
+  padding-left:27rpx;
+}

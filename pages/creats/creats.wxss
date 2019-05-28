@@ -1,0 +1,157 @@
+/* 表单添加 */
+.title{
+  margin-left: 10rpx;
+}
+
+/* .col-3 {
+  float: left;
+  width: 80%;
+  position: relative;
+  margin-left: 10%;
+}
+
+.effect-1,
+.effect-2,
+.effect-3 {
+  border: 0;
+  padding: 7px 0;
+  background: #ffffff00;
+}
+
+input.effect-2 {
+  font-size: 12px;
+  height: 30px;
+}
+
+input.effect-1 {
+  height:57px;
+  margin-top:5%;
+  font:23px/25px "Lato", Arial, sans-serif;
+  color:#333;
+  width:100%;
+  box-sizing:border-box;
+  letter-spacing:1px;
+
+}
+
+.effect-1 .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.effect-1:focus .focus-border {
+  width: 100%;
+  transition: 0.4s;
+}
+
+.effect-2  .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.effect-2:focus  .focus-border {
+  width: 100%;
+  transition: 0.4s;
+  left: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #cccccc;
+} */
+
+.addbox{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+
+}
+.addboxitem{
+  display: block;
+  font-size:18px;
+  width:100%;
+  height:60px;
+  background:white;
+  color:#1473d2;
+  margin-top:4%;
+  width:80%;
+  box-shadow:#00000010 0px 3px 30px;
+  text-align:center;
+  line-height:60px;
+}
+.formbox{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+
+}
+.formboxitem{
+  display: block;
+  width:100%;
+  height:90px;
+  background:white;
+  color:#1473d2;
+  margin-top:4%;
+  width:94%;
+  box-shadow:#00000010 0px 3px 30px;
+  border-radius: 6px;
+}
+
+
+
+
+/* 编辑栏 */
+.formitemcontext{
+  display: block;
+  width:100%;
+  height:60px;
+  background:white;
+  color:#1b1c1d;
+  box-shadow:#00000010 0px 3px 30px;
+  
+}
+.formname{
+  text-align: 30px;
+  font-size: 17px;
+  padding-top: 10px;
+  margin-left: 6%;
+}
+.formsubmit{
+  text-align: 15px;
+  font-size: 10px;
+  margin-right: 6px;
+  margin-top: 1%;
+  color: rgb(114, 112, 112);
+  margin-left: 6%;
+}
+.formedit{
+  font-size: 13px;
+  color:rgb(59, 58, 58);
+  float: left;
+}
+.formitemedit{
+  width:100%;
+  height:30px;
+  color: #909090;
+  margin-top: 5px;
+  
+}
+.formedititem{
+  float: left;
+  margin-left: 7%;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "预览",
+  "usingComponents": {
+    "van-rate": "../../lib/rate/index",
+    "van-datetime-picker": "../../lib/datetime-picker/index"
+  }
+}
