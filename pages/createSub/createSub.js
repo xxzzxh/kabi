@@ -36,18 +36,6 @@ Page({
          "minItems": 1, 
          "enums": [] 
        }, 
-       { "title": "选择", 
-       "description": "", 
-       "type": "array", 
-       "default": [], 
-       "ui_widget": "array", 
-       "ui_required": true, 
-       "ui_key": "mollit", 
-       "ui_icon": "", 
-       "maxItems": 3, 
-       "minItems": 1, 
-       "enums": [] 
-       }, 
        { 
          "title": "单选框", 
          "description": "", 
@@ -106,7 +94,6 @@ Page({
               { "title": "日期", "description": "", "type": "string", "default": "", "ui_widget": "format-date", "ui_required": true, "ui_key": "adipisicing u", "ui_icon": "", "maxLength": 255, "minLength": 1, "format": "date" },
               { "title": "邮箱", "description": "", "type": "string", "default": "", "ui_widget": "format-email", "ui_required": true, "ui_key": "ad", "ui_icon": "", "maxLength": 255, "minLength": 1, "format": "email" }, 
               { "title": "手机号", "description": "", "type": "string", "default": "", "ui_widget": "format-mobile-number", "ui_required": true, "ui_key": "consequat", "ui_icon": "", "maxLength": 255, "minLength": 1, "format": "mobile-number" }, 
-              { "title": "字符串", "description": "", "type": "string", "default": "", "ui_widget": "string", "ui_required": true, "ui_key": "sunt culpa fugiat", "ui_icon": "", "maxLength": 255, "minLength": 1 }, 
               { "title": "密码", "description": "", "type": "string", "default": "", "ui_widget": "password", "ui_required": true, "ui_key": "velit in aute voluptate Lorem", "ui_icon": "", "maxLength": 255, "minLength": 1 }, 
               { "title": "文本", "description": "", "type": "string", "default": "", "ui_widget": "text", "ui_required": true, "ui_key": "do sunt ipsum", "ui_icon": "", "maxLength": 255, "minLength": 1 },   
               { "title": "多行文本", "description": "", "type": "string", "default": "", "ui_widget": "textarea", "ui_required": true, "ui_key": "aliqua Ut consequat", "ui_icon": "", "maxLength": 255, "minLength": 1 },
@@ -120,11 +107,11 @@ Page({
   },
   // 去单选页面
   toRadio(e){
-    console.log(e)
-    // var types = e.currentTarget.dataset.type;
-    // wx.navigateTo({
-    //   url: '/pages/radio/radio?type=' + types,
-    // })
+    console.log(e);
+    //为拖拽到容器的元素添加唯一 key
+    var key = Date.parse(new Date()) + '_' + Math.ceil(Math.random() * 99999)
+    //给选中的schema赋值key
+    e.currentTarget.dataset.item.ui_key = key;
     var schema = JSON.stringify(e.currentTarget.dataset.item);
     wx.navigateTo({
       url: '/pages/radio/radio?schema=' + schema,

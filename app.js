@@ -62,9 +62,10 @@ App({
   // 微信请求的封装
   res: function ({ url, method, data, loading, callback }) {
     if (loading || loading == undefined) {
-      wx.showLoading({
-        title: '加载中...',
-      });
+      // 注释了
+      // wx.showLoading({
+      //   title: '加载中...',
+      // });
     }
     wx.request({
       url: this.globalData.appPath + url, //仅为示例，并非真实的接口地址

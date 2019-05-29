@@ -4,8 +4,15 @@ const app = getApp();
 const $v = app.globalData.createInfo;
 Page({
   data: {
+    // confirm还没改理清楚
   confirm: true,
-  showModal: false, // 显示modal弹窗
+  form:{
+    radio:'',
+    select:'',
+    checkbox:'',
+    input:''
+  }
+
   },
   /**
    * 生命周期函数--监听页面加载

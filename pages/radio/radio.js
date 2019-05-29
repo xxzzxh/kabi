@@ -25,12 +25,19 @@ Page({
   title(e){
     var val = e.detail.value;
     this.setData({
-      title:val
+      "schema.title":val
     })
-    this.data.schema.title=val
     // console.log("title" + JSON.stringify(this.data.schema))
   },
-  //选择
+  //日期选择
+  radioChange(e)
+  {
+    var val = e.detail.value;
+    this.setData({
+      "schema.default": val
+    })
+    console.log("title" + JSON.stringify(this.data.schema))
+  },
 
   // 选项值
   addTitle(e){
@@ -40,7 +47,7 @@ Page({
     if(val == "") {
       arr[index]= "";
     }else {
-      arr[index] = { answer: val };
+      arr[index] = { text: val };
     }
     this.setData({
       //  answerslist: arr,
@@ -111,6 +118,7 @@ Page({
   //设置tab默认值
   changedefault(e) {
     var checked = e.detail.value;
+    console.log("默认值" + checked);
     this.setData({
       "schema.default": checked ? 1 : 0
     });

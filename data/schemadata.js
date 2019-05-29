@@ -252,133 +252,6 @@ var schemaschema =
     },
     {
       "meta": {
-        "name": "选择",
-        "ui_widget": "array",
-        "icon": "array",
-        "abstract": true
-      },
-      "ui_widget": "array",
-      "base_type": "array",
-      "schema_schema": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 30,
-            "title": "标题",
-            "description": "",
-            "default": "选择"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255,
-            "title": "描述",
-            "description": "",
-            "default": ""
-          },
-          "type": {
-            "type": "string",
-            "title": "值类型",
-            "description": "",
-            "const": "array"
-          },
-          "default": {
-            "title": "默认值",
-            "description": "",
-            "default": [],
-            "type": "array"
-          },
-          "ui_widget": {
-            "type": "string",
-            "title": "控件类型",
-            "description": "",
-            "const": "array"
-          },
-          "ui_required": {
-            "type": "boolean",
-            "title": "是否必填",
-            "description": "",
-            "default": true
-          },
-          "ui_key": {
-            "type": "string",
-            "title": "字段名",
-            "description": ""
-          },
-          "ui_icon": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "title": "图标名",
-            "description": "",
-            "default": ""
-          },
-          "maxItems": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 10,
-            "title": "最大选择项目",
-            "description": "",
-            "default": 3
-          },
-          "minItems": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 10,
-            "title": "最小选择项目",
-            "description": "",
-            "default": 1
-          },
-          "enums": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "minItems": 1,
-            "maxItems": 10,
-            "title": "选项",
-            "description": "",
-            "default": []
-          }
-        },
-        "required": [
-          "title",
-          "description",
-          "type",
-          "default",
-          "ui_widget",
-          "ui_required",
-          "ui_key",
-          "ui_icon",
-          "maxItems",
-          "minItems",
-          "enums"
-        ],
-        "additionalProperties": false,
-        "meta": {
-          "name": "选择",
-          "ui_widget": "array",
-          "icon": "array",
-          "abstract": true
-        },
-        "definitions": {
-          "length": {
-            "type": "number",
-            "multipleOf": 1,
-            "minimum": 1,
-            "maximum": 1000
-          },
-          "integer": {
-            "type": "number",
-            "multipleOf": 1
-          }
-        }
-      }
-    },
-    {
-      "meta": {
         "name": "单选框",
         "ui_widget": "radio",
         "icon": "radio"
@@ -1115,127 +988,6 @@ var schemaschema =
     },
     {
       "meta": {
-        "name": "邮箱",
-        "ui_widget": "format-email",
-        "icon": "email"
-      },
-      "ui_widget": "format-email",
-      "base_type": "string",
-      "schema_schema": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 30,
-            "title": "标题",
-            "description": "",
-            "default": "邮箱"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255,
-            "title": "描述",
-            "description": "",
-            "default": ""
-          },
-          "type": {
-            "type": "string",
-            "title": "值类型",
-            "description": "",
-            "const": "string"
-          },
-          "default": {
-            "title": "默认值",
-            "description": "",
-            "default": "",
-            "type": "string"
-          },
-          "ui_widget": {
-            "type": "string",
-            "title": "控件类型",
-            "description": "",
-            "const": "format-email"
-          },
-          "ui_required": {
-            "type": "boolean",
-            "title": "是否必填",
-            "description": "",
-            "default": true
-          },
-          "ui_key": {
-            "type": "string",
-            "title": "字段名",
-            "description": ""
-          },
-          "ui_icon": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 20,
-            "title": "图标名",
-            "description": "",
-            "default": ""
-          },
-          "maxLength": {
-            "type": "number",
-            "title": "最大长度",
-            "description": "",
-            "default": 255,
-            "multipleOf": 1,
-            "minimum": 1,
-            "maximum": 1000
-          },
-          "minLength": {
-            "type": "number",
-            "title": "最小长度",
-            "description": "",
-            "default": 1,
-            "multipleOf": 1,
-            "minimum": 1,
-            "maximum": 1000
-          },
-          "format": {
-            "type": "string",
-            "title": "类型",
-            "const": "email"
-          }
-        },
-        "required": [
-          "title",
-          "description",
-          "type",
-          "default",
-          "ui_widget",
-          "ui_required",
-          "ui_key",
-          "ui_icon",
-          "maxLength",
-          "minLength",
-          "format"
-        ],
-        "additionalProperties": false,
-        "meta": {
-          "name": "邮箱",
-          "ui_widget": "format-email",
-          "icon": "email"
-        },
-        "definitions": {
-          "length": {
-            "type": "number",
-            "multipleOf": 1,
-            "minimum": 1,
-            "maximum": 1000
-          },
-          "integer": {
-            "type": "number",
-            "multipleOf": 1
-          }
-        }
-      }
-    },
-    {
-      "meta": {
         "name": "手机号",
         "ui_widget": "format-mobile-number",
         "icon": "fa-mobile"
@@ -1339,6 +1091,127 @@ var schemaschema =
         "meta": {
           "name": "手机号",
           "ui_widget": "format-mobile-number",
+          "icon": "fa-mobile"
+        },
+        "definitions": {
+          "length": {
+            "type": "number",
+            "multipleOf": 1,
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "integer": {
+            "type": "number",
+            "multipleOf": 1
+          }
+        }
+      }
+    },
+    {
+      "meta": {
+        "name": "邮箱",
+        "ui_widget": "format-email",
+        "icon": "fa-mobile"
+      },
+      "ui_widget": "format-email",
+      "base_type": "string",
+      "schema_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "title": "标题",
+            "description": "",
+            "default": "手机号"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "title": "描述",
+            "description": "",
+            "default": ""
+          },
+          "type": {
+            "type": "string",
+            "title": "值类型",
+            "description": "",
+            "const": "string"
+          },
+          "default": {
+            "title": "默认值",
+            "description": "",
+            "default": "",
+            "type": "string"
+          },
+          "ui_widget": {
+            "type": "string",
+            "title": "控件类型",
+            "description": "",
+            "const": "format-email"
+          },
+          "ui_required": {
+            "type": "boolean",
+            "title": "是否必填",
+            "description": "",
+            "default": true
+          },
+          "ui_key": {
+            "type": "string",
+            "title": "字段名",
+            "description": ""
+          },
+          "ui_icon": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "title": "图标名",
+            "description": "",
+            "default": ""
+          },
+          "maxLength": {
+            "type": "number",
+            "title": "最大长度",
+            "description": "",
+            "default": 255,
+            "multipleOf": 1,
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "minLength": {
+            "type": "number",
+            "title": "最小长度",
+            "description": "",
+            "default": 1,
+            "multipleOf": 1,
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "format": {
+            "type": "string",
+            "title": "类型",
+            "const": "email"
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "type",
+          "default",
+          "ui_widget",
+          "ui_required",
+          "ui_key",
+          "ui_icon",
+          "maxLength",
+          "minLength",
+          "format"
+        ],
+        "additionalProperties": false,
+        "meta": {
+          "name": "邮箱",
+          "ui_widget": "format-email",
           "icon": "fa-mobile"
         },
         "definitions": {

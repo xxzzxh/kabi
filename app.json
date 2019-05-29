@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/createSub/createSub",
     "pages/participate/participate",
     "pages/creat/creat",
-    "pages/createSub/createSub",
     "pages/creats/creats",
     "pages/detail/detail",
     "pages/radio/radio",

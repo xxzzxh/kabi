@@ -65,3 +65,12 @@ page {
   margin:24rpx auto;
   font-size:32rpx;
 }
+/* radio */
+.radio {
+  display:block;
+  font-size:30rpx;
+  padding:20rpx;
+}
+.radio radio {
+  margin-right:20rpx;
+}

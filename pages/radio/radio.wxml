@@ -1,6 +1,6 @@
 <!--pages/radio/radio.wxml-->
 <view class="container">
-  <view class="question" wx:for="{{schemaschema}}" wx:if="{{ item.meta.name == schematitle}}">
+ <view class="question" wx:for="{{schemaschema}}" wx:if="{{ item.meta.name == schematitle}}">
   <view wx:for="{{item.schema_schema.properties}}" wx:for-index="indexname" wx:for-item="itemp">
   <!-- 标题 -->
     <view class="questionB" wx:if="{{indexname == 'title'}}">
@@ -11,7 +11,7 @@
                 value="{{schema.title}}"></input>
       </view>
     </view>
-    <!-- 选项 -->
+    <!-- 选项 enums-->
     <view class="questionB" wx:if="{{indexname == 'enums' && schema.ui_widget != 'tab'}}">
       <view class="input" 
       wx:for="{{schema.enums}}" 
@@ -24,52 +24,81 @@
         <input placeholder='请输入选项内容' 
         data-index="{{ie}}" 
         bindinput='addTitle' 
-        value='{{iteme.answer}}'></input>
+        value='{{iteme.text}}'></input>
       </view>
       <view class="input add" catchtap='addOptions'>
         <icon class="iconfont icon-msnui-add-line"></icon>
         <text>添加选项</text>
       </view>
     </view>
-    <!-- tab默认值 BUG:无法展示设置的默认值-->
+    <!-- enums tab默认值-->
     <view class="questionB" wx:if="{{indexname == 'enums'&& schema.ui_widget == 'tab'}}">
     <view class="input">
-        <text>设置默认值</text>
-        <switch checked="0" bindchange="changedefault"/>
+        <text>设置默认值为</text>
+        <switch checked="{{schema.default}}" bindchange="changedefault"/>
       </view>
     </view>
+    <!--WATIT enums dropdown默认值 感觉没啥用其实 复制一下createsub的就好-->
      <!-- silde默认值 BUG:还未实现-->
     <!-- 类型 input 包括：数字maximum最大长度||最小长度-->
-    <view class="questionB" wx:if="{{indexname == 'maximum'|| indexname == 'minimum'}}">
-    <view class="input">
+    <view class="questionB" wx:if="{{indexname == 'maximum'|| indexname == 'minimum'|| indexname == 'maxLength'|| indexname == 'minLength'}}">
+     <view class="input">
         <text>{{itemp.title}}</text>
-         <input placeholder="{{itemp.title}}" type="number" value="{{schema.maximum}}" bindinput="setinput" data-properties="{{indexname}}"/>
-      </view>
+         <input wx:if="{{indexname == 'maximum'}}"
+                placeholder="{{itemp.title}}" 
+                type="number" 
+                value="{{schema.maximum}}" 
+                bindinput="setinput" 
+                data-properties="{{indexname}}"/>
+         <input wx:if="{{indexname == 'minimum'}}"
+                placeholder="{{itemp.title}}" 
+                type="number" 
+                value="{{schema.minimum}}" 
+                bindinput="setinput" 
+                data-properties="{{indexname}}"/>
+         <input wx:if="{{indexname == 'maxLength'}}"
+                placeholder="{{itemp.title}}" 
+                type="number" 
+                value="{{schema.maxLength}}" 
+                bindinput="setinput" 
+                data-properties="{{indexname}}"/>
+         <input wx:if="{{indexname == 'minLength'}}"
+                placeholder="{{itemp.title}}" 
+                type="number" 
+                value="{{schema.minLength}}" 
+                bindinput="setinput" 
+                data-properties="{{indexname}}"/>
+     </view>
     </view>
     <!-- 类型 tab 包括：是否为整数||是否必填 BUG:并没有设置相应的整数限制 -->
     <view class="questionB" wx:if="{{indexname == 'ui_integer'||indexname == 'ui_required'}}" data-properties='{{indexname}}'>
       <view class="input">
         <text>{{itemp.title}}</text>
-        <switch checked="false" bindchange="changeIs"/>
+        <switch checked="{{itemp.default}}" bindchange="changeIs"/>
       </view>
     </view> 
-
-    <!-- 星级评分 -->
-
-   <!-- 是否被某数整除 BUG:还未实现-->
-    <!-- 是否必填 -->
-    <!-- <view class="questionB" wx:if="{{indexname == 'ui_required'}}">
-      <!-- <view class="input">
-        <text>{{type?"切换至填空题":"切换至单选题"}}</text>
-        <switch checked="{{type}}" bindchange="changeType"/>
-      </view> -->
-      <!-- <view class="input">
-        <text>此题目必须答</text>
-        <switch checked="{{schema.ui_required}}" bindchange="changeIsmust"/>
+    <!-- 选择时间 -->
+    <view class="questionB" wx:if="{{itemp.const == 'date'}}">
+      <view class="input">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="date"/>选择日期（年月日）
+          </label>
+          <label class="radio">
+            <radio value="year-month"/>选择日期（年月）
+          </label>
+          <label class="radio">
+            <radio value="time"/>选择时间
+          </label> 
+          <label class="radio">
+            <radio value="datetime"/>选择完整时间(年月日时间）
+          </label> 
+        </radio-group>
       </view>
-    </view> --> 
+    </view>
+   <!-- 是否被某数整除 BUG:还未实现-->
 
   </view>
-  </view>
+</view>
   <button class="btn" catchtap='submit'>提交</button>
 </view>

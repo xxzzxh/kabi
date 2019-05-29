@@ -147,3 +147,6 @@ page {
   border: 1px solid #c5c7c9;
   padding-left:27rpx;
 }
+.inputtextarea{
+  width: 95%;
+}

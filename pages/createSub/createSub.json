@@ -2,6 +2,7 @@
   "usingComponents": {
     "modalView": "../modal/modal",
     "van-rate": "../../lib/rate/index",
-    "van-datetime-picker": "../../lib/datetime-picker/index"
+    "van-datetime-picker": "../../lib/datetime-picker/index",
+    "van-picker": "../../lib/picker/index"
   }
 }

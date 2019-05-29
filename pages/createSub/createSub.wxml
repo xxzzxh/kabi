@@ -54,7 +54,7 @@
       <view class="questionA" wx:if="{{item.schema.ui_widget == 'radio'}}">
         <radio-group class="radio-group" >
           <label class="radio"  wx:for="{{item.schema.enums}}" wx:key="{{index}}">
-            <radio value="{{item.id}}"/>{{item.answer}}
+            <radio value="{{item.id}}"/>{{item.text}}
           </label>
         </radio-group>
         <view class="textarea" wx:if="{{item.schema.enums == ''}}">
@@ -67,27 +67,54 @@
           <label class="radio"  wx:for="{{item.schema.enums}}" wx:key="{{index}}">
            <!-- <checkbox value="{{item.name}}" checked="{{item.checked}}" /> -->
             <checkbox/>
-            {{item.answer}}
+            {{item.text}}
           </label>
         </checkbox-group>
         <view class="textarea" wx:if="{{item.schema.enums == ''}}">
           <textarea placeholder="请输入回答"/>
         </view>
       </view>
-      <!-- tab选择  BUG:无法展示设置的默认值-->
-       <view class="questionA" wx:if="{{item.schema.ui_widget == 'tab'}}">
+      <!-- picker 下拉选择渲染 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'dropdown'}}">
        <label class="radio">
-       <switch checked="{{schema.default}}" />
+        <van-picker
+          columns="{{item.schema.enums}}"
+          default-index="{{ 2 }}"
+          />
        </label>
       </view>
-      <!-- 文本-数字 BUG:还没有设置输入非数字提示和超过最大值提示 
+      <!-- tab选择-->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'tab'}}">
+       <label class="radio">
+       <switch checked="{{item.schema.default}}" />
+       </label>
+      </view>
+      <!-- 文本-普通 BUG:还没有设置输入非数字提示 
                     BUG:并没有设置相应的整数限制
                     BUG:是否被某数整除还未实现渲染和设置
                     BUG:手机号邮箱等还没有限制 -->
-      <view class="questionA" wx:if="{{item.schema.ui_widget == 'number'|| item.schema.ui_widget == 'format-email'|| item.schema.ui_widget == 'format-mobile-number'|| item.schema.ui_widget == 'text'}}">
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'format-email'||          item.schema.ui_widget == 'format-mobile-number'|| item.schema.ui_widget           == 'text'|| item.schema.ui_widget == 'text_regex'}}">
        <label class="radio">
-        <input class="inputtext" placeholder="请输入" type="{{item.schema.type}}" maxlength="{{item.schema.maximum}}"/>
+        <input class="inputtext" placeholder="请输入" type="{{item.schema.type}}" maxlength="{{item.schema.maxLength}}"/>
+       </label>
+      </view>
+       <!-- 文本-特殊：密码 BUG:还没有设置输入非数字提示-->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'password'}}">
+       <label class="radio">
+        <input class="inputtext" placeholder="请输入" type="{{item.schema.type}}" maxlength="{{item.schema.maxLength}}" password="true"/>
           </label>
+      </view>
+       <!-- 文本-特殊：数字 BUG:还没有设置输入非数字提示和超过最大值提示 -->
+      <view class="questionA" wx:if="{{item.schema.ui_widget == 'number'}}">
+       <label class="radio">
+        <input class="inputtext" placeholder="请输入" type="{{item.schema.type}}" maxlength="{{item.schema.maximum}}" password="true"/>
+          </label>
+      </view>
+      <!-- 文本 多行输入框  -->
+      <view class="questionS" wx:if="{{item.schema.ui_widget == 'textarea'}}">
+       <label class="radio">
+        <textarea class="inputtextarea" placeholder="请输入" maxlength="{{item.schema.maximum}}" auto-height="true"/>
+       </label>
       </view>
       <!-- slide渲染 -->
        <view class="questionA" wx:if="{{item.schema.ui_widget == 'slider'}}">
@@ -95,19 +122,21 @@
        <slider bindchange="changedefault" min="{{item.schema.minimum}}" max="{{item.schema.maximum}}" show-value />
        </label>
       </view>
-      <!-- star渲染 -->
+      <!-- star渲染 BUG:要点一下才可以出现正常设置的数量-->
       <view class="questionA" wx:if="{{item.schema.ui_widget == 'rate'}}">
        <label class="radio">
-       <van-rate size="32">
-       </van-rate>
+       <van-rate
+        size="32" 
+        count="{{item.schema.maximum}}"
+        />
        </label>
       </view>
-      <!-- picker -->
+      <!-- datetimepicker BUG:本身schema限制 还未设置设置最大最小值时间等 -->
       <view class="questionA" wx:if="{{item.schema.ui_widget == 'format-date'}}">
        <label class="radio">
-       <van-datetime-picker
-              type="time"
-      />
+       <van-datetime-picker type="{{item.schema.default}}"
+                            confirm-button-text=""
+                            cancel-button-text=""/>
        </label>
       </view>
     </view>
