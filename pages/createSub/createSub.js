@@ -116,6 +116,8 @@ Page({
     wx.navigateTo({
       url: '/pages/radio/radio?schema=' + schema,
     })
+    var showModal = this.data.showModal;
+    this.setData({ showModal: !showModal });
   },
   //去编辑页面
   edit(e){
