@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/more/more",
     "pages/createSub/createSub",
     "pages/participate/participate",
     "pages/creat/creat",
@@ -8,7 +10,10 @@
     "pages/radio/radio",
     "pages/statis/statis",
     "pages/preview/preview",
-    "pages/suggest/suggest"
+    "pages/suggest/suggest",
+      "pages/contact/contact",
+      "pages/notify/notify"
+  
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -32,7 +37,7 @@
         "text": "我创建的"
       },
       {
-        "pagePath": "pages/suggest/suggest",
+        "pagePath": "pages/more/more",
         "selectedIconPath": "images/suggestA.png",
         "iconPath": "images/suggest.png",
         "text": "个人中心"

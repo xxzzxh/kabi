@@ -1,0 +1,34 @@
+
+
+<view class="chat ">
+    <view class="chat-item flex-wrp">
+        <view class="avatar flex-item">
+            <image src="../../images/IMG_0973.jpg"></image>
+        </view>
+        <view class="chat-content flex-item">
+            <view class="chat-source">
+                <text class="chatmate">Alex</text>
+                <text class="lasttime">1 个月前</text>
+            </view>
+            <text class="chat-txt">发布了一个新表单~</text>
+        </view>
+    </view>
+    <view class="chat-item flex-wrp">
+        <view class="avatar flex-item">
+            <image src="../../images/IMG_0973.jpg"></image>
+        </view>
+        <view class="chat-content flex-item">
+            <view class="chat-source">
+                <text class="chatmate">George</text>
+                <text class="lasttime">3 个月前</text>
+            </view>
+            <text class="chat-txt">表单《人事变动》已经发布，请尽快完成！</text>
+        </view>
+    </view>
+</view>
+
+
+
+
+
+

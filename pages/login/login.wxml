@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button class="btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap='tomore' > 点击登录 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button class="btnlong" bindtap="tomore"> 进入个人中心</button>
+      <button class="btnlong" bindtap="tocreat"> 快速创建表单</button>
+    </block>
+  </view>
+
+</view>
